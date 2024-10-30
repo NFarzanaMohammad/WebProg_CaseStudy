@@ -9,7 +9,7 @@
     <?php
         include 'db_connect.php';
         
-        if ($_server["REQUEST_METHOD"] == "POST" ) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             $email = $_POST["email"];
             $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
@@ -21,7 +21,7 @@
                 echo "The Email you use already registered";
             }else {
                 $stmt = $conn->prepare("INSERT INTO users (Email, Password, Is_Admin) VALUES (?, ?, 0)");
-                $stmt->bind_param("s", $email, $password);
+                $stmt->bind_param("ss", $email, $password);
                 if ($stmt->execute()) {
                     echo "You Has Been Registered";
                 }else {
@@ -35,6 +35,7 @@
     <form action="Register.php" method="post">
     Email: <input type="email" name="email" ><br>
     Password: <input type="password" name="password" ><br>
+    <button type="submit">Register</button>
     </form>
 </body>
 </html>
