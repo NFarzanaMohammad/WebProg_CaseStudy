@@ -37,7 +37,7 @@
                 $stmt->bind_param("ss", $email, $password);
                 if ($stmt->execute()) {
                     header("Location: Login.php");
-                    exit; // Ensure no further code is executed after redirection
+                    exit; 
                 } else {
                     echo '<div class="error-message">There was an error: ' . htmlspecialchars($stmt->error) . '</div>';
                 }

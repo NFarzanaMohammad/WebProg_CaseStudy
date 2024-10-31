@@ -38,7 +38,7 @@
                 $_SESSION['user_id'] = $user['ID'];
                 $_SESSION['is_admin'] = $user['Is_Admin'];
                 header("Location: search.php");
-                exit; // Ensure no further code is executed after redirection
+                exit; 
             } else {
                 echo '<div class="error-message">Incorrect password.</div>';
             }
